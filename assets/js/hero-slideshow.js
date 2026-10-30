@@ -57,6 +57,54 @@ document.addEventListener("DOMContentLoaded", () => {
       src: "assets/images/hero/bathroom-after.webp",
       alt: "Bathroom after professional cleaning",
     },
+    {
+      room: "4. Bedroom",
+      status: "before",
+      src: "assets/images/hero/bedroom-before.webp",
+      alt: "Bedroom before professional cleaning",
+    },
+    {
+      room: "4. Bedroom",
+      status: "after",
+      src: "assets/images/hero/bedroom-after.webp",
+      alt: "Bedroom after professional cleaning",
+    },
+    {
+      room: "5. Balcony",
+      status: "before",
+      src: "assets/images/hero/balcony-before.webp",
+      alt: "Balcony before professional cleaning",
+    },
+    {
+      room: "5. Balcony",
+      status: "after",
+      src: "assets/images/hero/balcony-after.webp",
+      alt: "Balcony after professional cleaning",
+    },
+    {
+      room: "6. Dining Area",
+      status: "before",
+      src: "assets/images/hero/dining-area-before.webp",
+      alt: "Dining area before professional cleaning",
+    },
+    {
+      room: "6. Dining Area",
+      status: "after",
+      src: "assets/images/hero/dining-area-after.webp",
+      alt: "Dining area after professional cleaning",
+    },
+    {
+      room: "7. Home Office",
+      status: "before",
+      src: "assets/images/hero/home-office-before.webp",
+      alt: "Home office before professional cleaning",
+    },
+    {
+      room: "7. Home Office",
+      status: "after",
+      src: "assets/images/hero/home-office-after.webp",
+      alt: "Home office after professional cleaning",
+    },
   ];
 
   /* Animation Settings */
