@@ -1,0 +1,409 @@
+/* ==================================================
+   GLOBAL HEADER STYLES STARTED
+================================================== */
+
+/* Header Structure */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  z-index: var(--z-header);
+  transition: box-shadow var(--transition-base);
+}
+
+.site-header.is-scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  height: 100%;
+}
+
+/* ==================================================
+   HEADER BRAND LOGO STARTED
+================================================== */
+
+.header-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+/* Brand Logo Icon Started */
+.header-logo .header-logo-icon {
+  display: block;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+/* Brand Logo Icon Ended */
+
+/* ==================================================
+   HEADER BRAND LOGO ENDED
+================================================== */
+
+/* ==================================================
+   HEADER TEXT LOGO STYLES STARTED
+================================================== */
+
+.header-brand-name {
+  display: inline-block;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.header-brand-name span {
+  color: var(--color-primary);
+}
+
+/* Responsive Text Logo */
+@media (max-width: 480px) {
+  .header-brand-name {
+    font-size: 1.35rem;
+  }
+}
+
+/* ==================================================
+   HEADER TEXT LOGO STYLES ENDED
+================================================== */
+
+/* Desktop Navigation */
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.header-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: clamp(12px, 1.4vw, 22px);
+  row-gap: 8px;
+}
+
+.header-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.header-nav-link:hover,
+.header-nav-link.is-active,
+.header-nav-link[aria-current="location"] {
+  color: var(--color-primary);
+}
+
+.header-nav-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-fast);
+}
+
+.header-nav-link:hover::after,
+.header-nav-link.is-active::after,
+.header-nav-link[aria-current="location"]::after {
+  transform: scaleX(1);
+}
+
+/* ==================================================
+   MORE EXPLORE DROPDOWN STYLES STARTED
+================================================== */
+
+/* Dropdown Container Started */
+.header-dropdown {
+  position: relative;
+}
+
+.header-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.header-dropdown-toggle > span {
+  font-size: 18px;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.header-dropdown-toggle[aria-expanded="true"] > span {
+  transform: rotate(180deg);
+}
+/* Dropdown Container Ended */
+
+/* Dropdown Menu Started */
+.header-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  display: none;
+  width: 210px;
+  padding: 8px;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: var(--color-white);
+  box-shadow: var(--shadow-lg);
+}
+
+.header-dropdown-toggle[aria-expanded="true"] + .header-dropdown-menu {
+  display: block;
+}
+
+.header-dropdown-menu a {
+  display: block;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.header-dropdown-menu a:hover,
+.header-dropdown-menu a:focus-visible {
+  background-color: var(--color-secondary-soft);
+  color: var(--color-primary);
+}
+/* Dropdown Menu Ended */
+
+/* Mobile Dropdown Started */
+@media (max-width: 1024px) {
+  .header-dropdown-toggle {
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 12px;
+  }
+
+  .header-dropdown-menu {
+    position: static;
+    width: 100%;
+    margin-top: 4px;
+    padding: 4px 0 4px 12px;
+    border: 0;
+    border-left: 2px solid var(--color-secondary);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .header-dropdown-menu a {
+    min-height: 42px;
+    padding: 11px 12px;
+  }
+}
+/* Mobile Dropdown Ended */
+
+/* ==================================================
+   MORE EXPLORE DROPDOWN STYLES ENDED
+================================================== */
+
+/* Header CTA */
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 46px;
+  padding: 10px 20px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--button-radius);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.header-cta:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Mobile Menu Toggle */
+.header-menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 9px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  color: var(--color-text);
+}
+
+.header-menu-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Header */
+@media (max-width: 1180px) {
+  .header-container {
+    gap: var(--space-4);
+  }
+
+  .header-nav-list {
+    column-gap: 12px;
+  }
+
+  .header-nav-link {
+    font-size: 0.8rem;
+  }
+
+  .header-cta {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .site-header {
+    height: 76px;
+  }
+
+  .header-container {
+    position: relative;
+  }
+
+  /* Responsive Brand Logo Started */
+  .header-logo {
+    gap: 8px;
+  }
+
+  .header-logo .header-logo-icon {
+    width: 38px;
+    height: 38px;
+  }
+  /* Responsive Brand Logo Ended */
+
+  .header-menu-toggle {
+    display: inline-flex;
+    order: 3;
+  }
+
+  .header-cta {
+    margin-left: auto;
+  }
+
+  .header-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: var(--container-padding);
+    left: var(--container-padding);
+    display: none;
+    max-height: calc(100dvh - 90px);
+    overflow-y: auto;
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .header-nav.is-open {
+    display: block;
+  }
+
+  .header-nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .header-nav-link {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+  }
+
+  .header-nav-link:hover,
+  .header-nav-link.is-active,
+  .header-nav-link[aria-current="location"] {
+    background-color: var(--color-secondary-soft);
+  }
+
+  .header-nav-link::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    height: 68px;
+  }
+
+  /* Mobile Brand Logo Started */
+  .header-logo {
+    gap: 6px;
+  }
+
+  .header-logo .header-logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+  /* Mobile Brand Logo Ended */
+
+  .header-cta {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  .header-nav {
+    right: 16px;
+    left: 16px;
+  }
+}
+
+/* ==================================================
+   GLOBAL HEADER STYLES ENDED
+================================================== */
