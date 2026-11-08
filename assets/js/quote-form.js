@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let submissionId = null;
 
   /* Status Message Started */
-  function showStatus(message, color) {
+  function showStatus(message, color, duration = 3000) {
     clearTimeout(statusTimer);
 
     status.hidden = false;
@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     status.style.fontWeight = "700";
     status.style.textAlign = "center";
     status.style.marginTop = "12px";
+
+    statusTimer = setTimeout(() => {
+      status.hidden = true;
+      status.textContent = "";
+    }, duration);
   }
   /* Status Message Ended */
 
@@ -132,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     submitButton.disabled = true;
 
-    showStatus("Submitting your requirements...", "#087f8c");
+    showStatus("Submitting your inquiry...", "#087f8c");
 
     try {
       const response = await fetch(SCRIPT_URL, {
@@ -152,10 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (result.saved === true) {
         if (result.success === true) {
-          showStatus(
-            "Your enquiry was submitted successfully. Both confirmation emails have been sent.",
-            "#16803c",
-          );
+          showStatus("Submission successful!", "#16803c");
         } else {
           showStatus(
             result.message ||
@@ -180,10 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      showStatus(
-        result.message || "Your enquiry was submitted successfully.",
-        "#16803c",
-      );
+      showStatus("Submission successful!", "#16803c");
 
       form.reset();
       phoneInput.value = DEFAULT_PHONE;
