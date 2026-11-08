@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://techglowsolutionsindia.github.io/sparkclean-services/sitemap.xml
